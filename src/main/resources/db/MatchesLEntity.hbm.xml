@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.DBEntity.MatchesLEntity" table="matchesL" schema="bazabaka">
+        <id name="idmatches">
+            <column name="idmatches" sql-type="int(11)"/>
+        </id>
+        <property name="date">
+            <column name="date" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="winR1">
+            <column name="winR1" sql-type="double" precision="-1" not-null="true"/>
+        </property>
+        <property name="winR2">
+            <column name="winR2" sql-type="double" precision="-1" not-null="true"/>
+        </property>
+        <many-to-one name="player1" class="Entity.DBEntity.PlayersEntity">
+            <column name="player1"/>
+        </many-to-one>
+        <many-to-one name="player2" class="Entity.DBEntity.PlayersEntity">
+            <column name="player2"/>
+        </many-to-one>
+        <many-to-one name="result" class="Entity.DBEntity.ResultEntity">
+            <column name="result"/>
+        </many-to-one>
+        <many-to-one name="league" class="Entity.DBEntity.LeaguesEntity">
+            <column name="league"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

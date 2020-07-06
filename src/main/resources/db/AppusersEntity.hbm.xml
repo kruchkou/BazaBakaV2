@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.DBEntity.AppusersEntity" table="Appusers" schema="bazabaka">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="username">
+            <column name="username" sql-type="varchar(40)" length="40" not-null="true"/>
+        </property>
+        <property name="mac">
+            <column name="mac" sql-type="varchar(17)" length="17"/>
+        </property>
+    </class>
+</hibernate-mapping>

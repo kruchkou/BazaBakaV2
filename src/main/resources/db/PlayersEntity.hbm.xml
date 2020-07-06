@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.DBEntity.PlayersEntity" table="players" schema="bazabaka">
+        <id name="idplayers">
+            <column name="idplayers" sql-type="int(11)"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(45)" length="45"/>
+        </property>
+        <set name="matchesByPlayer1" inverse="true">
+            <key>
+                <column name="player1"/>
+            </key>
+            <one-to-many not-found="ignore" class="Entity.DBEntity.MatchesLEntity"/>
+        </set>
+        <set name="matchesByPlayer2" inverse="true">
+            <key>
+                <column name="player2"/>
+            </key>
+            <one-to-many not-found="ignore" class="Entity.DBEntity.MatchesLEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

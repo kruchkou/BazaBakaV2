@@ -1,0 +1,14 @@
+
+Ž
+java:S1130
+"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(¨¬†Âûÿÿÿÿ8ìŸ¨¦².
+W
+java:S1854":Remove this useless assignment to local variable "byDate".(ÁŒ¸ò8ë„Ä£².
+W	java:S125"<This block of commented-out lines of code should be removed.(Ò®÷)8ë„Ä£².
+H
+java:S1481"+Remove this unused "byDate" local variable.(ÁŒ¸ò8ë„Ä£².
+]	java:S125"<This block of commented-out lines of code should be removed.(Ã¦Æ ûÿÿÿÿ8ë„Ä£².
+]	java:S125"<This block of commented-out lines of code should be removed.(¾Ñöüÿÿÿÿ8ë„Ä£².
+X	java:S125"<This block of commented-out lines of code should be removed.(Üˆ²þ8ë„Ä£².
+s
+java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(éÑ•ýÿÿÿÿ8ë„Ä£².

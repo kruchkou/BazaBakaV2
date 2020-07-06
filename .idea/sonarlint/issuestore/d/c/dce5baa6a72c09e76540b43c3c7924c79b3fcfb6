@@ -1,0 +1,30 @@
+
+P
+java:S1068"3Remove this unused "GET_2PL_MATCHES" private field.(°þáç8þº‹®±.
+b
+java:S2095"EUse try-with-resources or close this "Session" in a "finally" clause.(Í¼ëè8þº‹®±.
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ä”òª8þº‹®±.
+i
+java:S11926"GDefine a constant instead of duplicating this literal "league" 4 times.(ûâ–ÿþÿÿÿÿ8í„Ä£².
+b
+java:S2095N"EUse try-with-resources or close this "Session" in a "finally" clause.(ÌšØª8í„Ä£².
+b
+java:S20952"EUse try-with-resources or close this "Session" in a "finally" clause.(ÌšØª8þº‹®±.
+b
+java:S2095;"EUse try-with-resources or close this "Session" in a "finally" clause.(ÌšØª8þº‹®±.
+b
+java:S2095E"EUse try-with-resources or close this "Session" in a "finally" clause.(ÌšØª8í„Ä£².
+v	java:S116"ZRename this field "GET_2PL_MATCHES" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°þáç8þº‹®±.
+D
+java:S1905-"'Remove this unnecessary cast to "List".(˜·ÍÅ8þº‹®±.
+]	java:S125"<This block of commented-out lines of code should be removed.(¥Ûµ¿ûÿÿÿÿ8þº‹®±.
+|
+java:S1488-"_Immediately return this expression instead of assigning it to the temporary variable "matches".(˜·ÍÅ8þº‹®±.
+b
+java:S1068"@Remove this unused "GET_LAST_MATCHES_BY_QUANTITY" private field.(…á°ñüÿÿÿÿ8þº‹®±.
+b
+java:S2095-"EUse try-with-resources or close this "Session" in a "finally" clause.(˜·ÍÅ8þº‹®±.
+ˆ	java:S116"gRename this field "GET_LAST_MATCHES_BY_QUANTITY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…á°ñüÿÿÿÿ8þº‹®±.
+i
+java:S1192="GDefine a constant instead of duplicating this literal "p1name" 3 times.(ôØ¬Šùÿÿÿÿ8í„Ä£².
+X	java:S1253"<This block of commented-out lines of code should be removed.(ËºÖü8þº‹®±.

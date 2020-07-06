@@ -1,0 +1,9 @@
+
+r	java:S117G"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÀëÎáýÿÿÿÿ8ù‚’â®.
+m
+java:S1128"KRemove this unused import 'org.hibernate.annotations.LazyCollectionOption'.(ÿ÷ê˜ùÿÿÿÿ8Ï‡­«±.
+b
+java:S1128"ERemove this unused import 'org.hibernate.annotations.LazyCollection'.(…÷äð8Ï‡­«±.
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÌÁŒŸ8ù‚’â®.
+c
+java:S1126-"AReplace this if-then-else statement by a single return statement.(¡«èÂüÿÿÿÿ8ù‚’â®.

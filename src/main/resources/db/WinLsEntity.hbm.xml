@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.DBEntity.WinLsEntity" table="WinLs" schema="bazabaka">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="date">
+            <column name="date" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="winL">
+            <column name="winL" sql-type="double" precision="-1"/>
+        </property>
+        <many-to-one name="leaguesByLeagueid" class="Entity.DBEntity.LeaguesEntity">
+            <column name="leagueid"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

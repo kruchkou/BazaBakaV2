@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.DBEntity.ResultEntity" table="result" schema="bazabaka">
+        <id name="idresult">
+            <column name="idresult" sql-type="int(11)"/>
+        </id>
+        <property name="score">
+            <column name="score" sql-type="varchar(3)" length="3"/>
+        </property>
+        <property name="set1">
+            <column name="set1" sql-type="varchar(5)" length="5"/>
+        </property>
+        <property name="set2">
+            <column name="set2" sql-type="varchar(5)" length="5"/>
+        </property>
+        <property name="set3">
+            <column name="set3" sql-type="varchar(5)" length="5"/>
+        </property>
+        <property name="set4">
+            <column name="set4" sql-type="varchar(5)" length="5" not-null="true"/>
+        </property>
+        <property name="set5">
+            <column name="set5" sql-type="varchar(5)" length="5" not-null="true"/>
+        </property>
+        <property name="set6">
+            <column name="set6" sql-type="varchar(5)" length="5" not-null="true"/>
+        </property>
+        <property name="set7">
+            <column name="set7" sql-type="varchar(5)" length="5" not-null="true"/>
+        </property>
+        <set name="matchesLSByIdresult" inverse="true">
+            <key>
+                <column name="result"/>
+            </key>
+            <one-to-many not-found="ignore" class="Entity.DBEntity.MatchesLEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

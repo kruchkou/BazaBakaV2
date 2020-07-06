@@ -1,0 +1,27 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ª¯Õ¹øÿÿÿÿ
+V
+java:S1854"9Remove this useless assignment to local variable "foras".(™½Ù•8ÿŒ”ª².
+b
+java:S1854"@Remove this useless assignment to local variable "checkedMatch".(‡Ššıøÿÿÿÿ8§å©².
+`
+java:S1854">Remove this useless assignment to local variable "goodWinner".(µƒÁÏıÿÿÿÿ8Ğéª².
+Q
+java:S1481"/Remove this unused "goodWinner" local variable.(µƒÁÏıÿÿÿÿ8á—ö©².
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8åö¡©².
+G
+java:S1481"*Remove this unused "foras" local variable.(™½Ù•8½¥“ª².
+O
+java:S1481"-Remove this unused "goodFora" local variable.(”¡ÂÁÿÿÿÿÿ8á—ö©².
+E	java:S108")Either remove or fill this block of code.(ã±˜Ì8©Íó©².
+K
+java:S1481".Remove this unused "goodTotal" local variable.(Ç£Ã²8á—ö©².
+S
+java:S1481"1Remove this unused "checkedMatch" local variable.(‡Ššıøÿÿÿÿ8¿…é©².
+\
+java:S1854":Remove this useless assignment to local variable "totals".(Æ¾ÕÀùÿÿÿÿ8ÿŒ”ª².
+E
+java:S1481"*Remove this unused "match" local variable.(ã±˜Ì8©Íó©².
+M
+java:S1481"+Remove this unused "totals" local variable.(Æ¾ÕÀùÿÿÿÿ8½¥“ª².

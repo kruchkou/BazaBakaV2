@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.DBEntity.LeaguesEntity" table="leagues" schema="bazabaka">
+        <id name="idleague">
+            <column name="idleague" sql-type="int(11)"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(45)" length="45"/>
+        </property>
+        <property name="winL">
+            <column name="WinL" sql-type="double" precision="-1" not-null="true"/>
+        </property>
+        <set name="winLsByIdleague" inverse="true">
+            <key>
+                <column name="leagueid"/>
+            </key>
+            <one-to-many not-found="ignore" class="Entity.DBEntity.WinLsEntity"/>
+        </set>
+        <set name="matchesLSByIdleague" inverse="true">
+            <key>
+                <column name="league"/>
+            </key>
+            <one-to-many not-found="ignore" class="Entity.DBEntity.MatchesLEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

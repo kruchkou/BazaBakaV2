@@ -1,0 +1,14 @@
+
+s
+java:S3457,"Q%n should be used in place of \n to produce the platform-specific line separator.(¹ì£ƒýÿÿÿÿ8×¬Ñ§².
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ª¯Õ¹øÿÿÿÿ
+H
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8×ðø£².
+s
+java:S3457'"Q%n should be used in place of \n to produce the platform-specific line separator.(Î¦âŽøÿÿÿÿ8×¬Ñ§².
+T
+java:S1128"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8×ðø£².
+N
+java:S1128"1Remove this unused import 'java.text.DateFormat'.(÷Œá¼8×ðø£².
+R
+java:S1128"5Remove this unused import 'java.text.ParseException'.(ñ®ï•8×ðø£².

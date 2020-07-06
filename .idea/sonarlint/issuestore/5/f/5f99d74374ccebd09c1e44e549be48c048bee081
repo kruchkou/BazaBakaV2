@@ -1,0 +1,10 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ä”òª
+t
+java:S1488)"^Immediately return this expression instead of assigning it to the temporary variable "league".(ò…·
+b
+java:S2095"EUse try-with-resources or close this "Session" in a "finally" clause.(ş¾‡ä8ªŠú¯.
+b
+java:S2095)"EUse try-with-resources or close this "Session" in a "finally" clause.(ò…·8ªŠú¯.
+D
+java:S1905)"'Remove this unnecessary cast to "List".(ò…·8ªŠú¯.

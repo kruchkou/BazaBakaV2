@@ -1,0 +1,10 @@
+
+C
+java:S1905)"'Remove this unnecessary cast to "List".(´’8ª‘ú¯.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ä”òª
+g
+java:S2095"EUse try-with-resources or close this "Session" in a "finally" clause.(ÿ…°¼şÿÿÿÿ8ª‘ú¯.
+a
+java:S2095)"EUse try-with-resources or close this "Session" in a "finally" clause.(´’8ª‘ú¯.
+u
+java:S1488)"`Immediately return this expression instead of assigning it to the temporary variable "appusers".(´’
