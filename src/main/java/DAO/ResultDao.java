@@ -1,5 +1,6 @@
 package DAO;
 
+import Entity.DBEntity.MatchesLEntity;
 import Entity.DBEntity.ResultEntity;
 import Util.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
@@ -42,4 +43,17 @@ public class ResultDao {
         return results;
     }
 
+    public List<ResultEntity> byParams(String score, String set1, String set2, String set3, String set4, String set5, String set6, String set7) {
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        return session.createNamedQuery("Result.byParams")
+                .setParameter("score", score)
+                .setParameter("set1", set1)
+                .setParameter("set2", set2)
+                .setParameter("set3", set3)
+                .setParameter("set4", set4)
+                .setParameter("set5", set5)
+                .setParameter("set6", set6)
+                .setParameter("set7", set7)
+                .getResultList();
+    }
 }

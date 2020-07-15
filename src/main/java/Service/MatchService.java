@@ -5,6 +5,8 @@ import Entity.DBEntity.MatchesLEntity;
 import Entity.DateFormater;
 import Entity.Match;
 import Entity.MatchList;
+import Util.HibernateSessionFactoryUtil;
+import org.hibernate.Session;
 
 import javax.xml.crypto.Data;
 import java.text.DateFormat;
@@ -23,23 +25,23 @@ public class MatchService {
     public MatchService() {
     }
 
-    public MatchesLEntity findMatchById(int id) {
+    public MatchesLEntity byId(int id) {
         return matchDao.findById(id);
     }
 
-    public void saveUser(MatchesLEntity match) {
+    public void save(MatchesLEntity match) {
         matchDao.save(match);
     }
 
-    public void deleteUser(MatchesLEntity match) {
+    public void delete(MatchesLEntity match) {
         matchDao.delete(match);
     }
 
-    public void updateUser(MatchesLEntity match) {
+    public void update(MatchesLEntity match) {
         matchDao.update(match);
     }
 
-    public List<MatchesLEntity> findAllUsers() {
+    public List<MatchesLEntity> all() {
         return matchDao.findAll();
     }
 
@@ -59,15 +61,14 @@ public class MatchService {
     }
 
     private void checkWinRs(List<MatchesLEntity> listMLEntity) {
-        final double NULL_WINR_VALUE = 0.123;
         for (MatchesLEntity matchEntity : listMLEntity) {
             String matchDate = DateFormater.getDate(matchEntity.getDate());
 
-            if (matchEntity.getWinR1() == NULL_WINR_VALUE || matchDate.equals(DateFormater.getCurrentDate())) {
+            if (matchEntity.getWinR1() == null || matchDate.equals(DateFormater.getCurrentDate())) {
                 matchEntity.setWinR1(getPlMatchesForDate(matchEntity.getPlayer1().getName(), DateFormater.getDate(matchEntity.getDate()), matchEntity.getLeague().getName()).getWinR(1));
                 matchDao.update(matchEntity);
             }
-            if (matchEntity.getWinR2() == NULL_WINR_VALUE || matchDate.equals(DateFormater.getCurrentDate())) {
+            if ( matchEntity.getWinR2() == null || matchDate.equals(DateFormater.getCurrentDate())) {
                 matchEntity.setWinR2(getPlMatchesForDate(matchEntity.getPlayer2().getName(), DateFormater.getDate(matchEntity.getDate()), matchEntity.getLeague().getName()).getWinR(1));
                 matchDao.update(matchEntity);
             }
@@ -86,10 +87,8 @@ public class MatchService {
         return matchList;
     }
 
-
-//    public Auto findAutoById(int id) {
-//        return matchDao.findAutoById(id);
-//    }
-
+    public MatchesLEntity byParams(String p1name, String p2name, String score, String set1, String set2, String set3, String set4, String set5, String set6, String set7, String date, String league) {
+        return matchDao.byParams(p1name, p2name, score, set1, set2, set3, set4, set5, set6, set7, date, league).get(0);
+    }
 
 }

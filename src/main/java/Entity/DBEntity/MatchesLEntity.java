@@ -3,6 +3,27 @@ package Entity.DBEntity;
 import javax.persistence.*;
 
 @NamedQueries({
+
+        @NamedQuery(name = "Match.byParams",
+                query = "From MatchesLEntity match " +
+                        "LEFT JOIN fetch match.player1 p1 " +
+                        "LEFT JOIN fetch match.player2 p2 " +
+                        "LEFT JOIN fetch match.result r " +
+                        "LEFT JOIN fetch match.league l " +
+                        "WHERE p1.name = :p1name " +
+                        "and p2.name = :p2name " +
+                        "and r.score = :score " +
+                        "and r.set1 = :set1 " +
+                        "and r.set2 = :set2 " +
+                        "and r.set3 = :set3 " +
+                        "and r.set4 = :set4 " +
+                        "and r.set5 = :set5 " +
+                        "and r.set6 = :set6 " +
+                        "and r.set7 = :set7 " +
+                        "and match.date = :date " +
+                        "and l.name = :league " +
+                        "order by match.date desc"),
+
         @NamedQuery(name = "Match.getMatches",
                 query = "From MatchesLEntity match " +
                         "LEFT JOIN fetch match.player1 p1 " +

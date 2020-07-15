@@ -1,6 +1,7 @@
 package DAO;
 
 import Entity.DBEntity.PlayersEntity;
+import Entity.DBEntity.ResultEntity;
 import Util.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -40,6 +41,13 @@ public class PlayerDao {
     public List<PlayersEntity> findAll() {
         List<PlayersEntity> players = (List<PlayersEntity>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From PlayersEntity").list();
         return players;
+    }
+
+    public List<PlayersEntity> byName(String name) {
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        return session.createNamedQuery("Player.byName")
+                .setParameter("name", name)
+                .getResultList();
     }
 
 }

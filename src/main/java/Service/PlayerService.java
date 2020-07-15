@@ -2,6 +2,7 @@ package Service;
 
 import DAO.PlayerDao;
 import Entity.DBEntity.PlayersEntity;
+import Entity.DBEntity.ResultEntity;
 
 import java.util.List;
 
@@ -12,29 +13,27 @@ public class PlayerService {
     public PlayerService() {
     }
 
-    public PlayersEntity findMatchById(int id) {
+    public PlayersEntity byId(int id) {
         return playerDao.findById(id);
     }
 
-    public void saveUser(PlayersEntity player) {
+    public void save(PlayersEntity player) {
         playerDao.save(player);
     }
 
-    public void deleteUser(PlayersEntity player) {
+    public void delete(PlayersEntity player) {
         playerDao.delete(player);
     }
 
-    public void updateUser(PlayersEntity player) {
+    public void update(PlayersEntity player) {
         playerDao.update(player);
     }
 
-    public List<PlayersEntity> findAllUsers() {
+    public List<PlayersEntity> all() {
         return playerDao.findAll();
     }
 
-//    public Auto findAutoById(int id) {
-//        return matchDao.findAutoById(id);
-//    }
-
-
+    public PlayersEntity byName(String name) {
+        return playerDao.byName(name).get(0);
+    }
 }

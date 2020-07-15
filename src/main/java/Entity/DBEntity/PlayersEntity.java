@@ -1,13 +1,19 @@
 package Entity.DBEntity;
 
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
 import javax.persistence.*;
 import java.util.Collection;
 
+@NamedQueries({
+
+        @NamedQuery(name = "Player.byName",
+                query = "From PlayersEntity players " +
+                        "WHERE name = :name ")
+
+})
+
 @Entity
 @Table(name = "players", schema = "bazabaka", catalog = "")
+
 public class PlayersEntity {
     private int idplayers;
     private String name;
@@ -71,4 +77,5 @@ public class PlayersEntity {
     public void setMatchesByPlayer2(Collection<MatchesLEntity> matchesLSByIdplayers_0) {
         this.matchesByPlayer2 = matchesLSByIdplayers_0;
     }
+
 }

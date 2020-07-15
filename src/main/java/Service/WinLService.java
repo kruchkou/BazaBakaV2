@@ -12,29 +12,24 @@ public class WinLService {
     public WinLService() {
     }
 
-    public WinLsEntity findMatchById(int id) {
+    public WinLsEntity byId(int id) {
         return winLDao.findById(id);
     }
 
-    public void saveUser(WinLsEntity winL) {
+    public void save(WinLsEntity winL) {
         winLDao.save(winL);
     }
 
-    public void deleteUser(WinLsEntity winL) {
+    public void delete(WinLsEntity winL) {
         winLDao.delete(winL);
     }
 
-    public void updateUser(WinLsEntity winL) {
+    public void update(WinLsEntity winL) {
         winLDao.update(winL);
     }
 
-    public List<WinLsEntity> findAllUsers() {
+    public List<WinLsEntity> all() {
         return winLDao.findAll();
     }
-
-//    public Auto findAutoById(int id) {
-//        return matchDao.findAutoById(id);
-//    }
-
 
 }

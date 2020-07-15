@@ -3,6 +3,19 @@ package Entity.DBEntity;
 import javax.persistence.*;
 import java.util.Collection;
 
+@NamedQueries({
+        @NamedQuery(name = "Result.byParams",
+                query = "From ResultEntity result " +
+                        "WHERE score = :score " +
+                        "and set1 = :set1 " +
+                        "and set2 = :set2 " +
+                        "and set3 = :set3 " +
+                        "and set4 = :set4 " +
+                        "and set5 = :set5 " +
+                        "and set6 = :set6 " +
+                        "and set7 = :set7 ")
+})
+
 @Entity
 @Table(name = "result", schema = "bazabaka", catalog = "")
 public class ResultEntity {

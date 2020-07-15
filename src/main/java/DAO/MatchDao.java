@@ -83,6 +83,24 @@ public class MatchDao {
                 .getResultList();
     }
 
+    public List<MatchesLEntity> byParams(String p1name, String p2name, String score, String set1, String set2, String set3, String set4, String set5, String set6, String set7, String date, String league) {
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        return session.createNamedQuery("Match.byParams")
+                .setParameter("p1name",p1name)
+                .setParameter("p2name",p2name)
+                .setParameter("score",score)
+                .setParameter("set1",set1)
+                .setParameter("set2",set2)
+                .setParameter("set3",set3)
+                .setParameter("set4",set4)
+                .setParameter("set5",set5)
+                .setParameter("set6",set6)
+                .setParameter("set7",set7)
+                .setParameter("date",date)
+                .setParameter("league",league)
+                .getResultList();
+    }
+
     //public List<MatchesLEntity>
 
 }

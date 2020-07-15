@@ -3,6 +3,14 @@ package Entity.DBEntity;
 import javax.persistence.*;
 import java.util.Collection;
 
+@NamedQueries({
+
+        @NamedQuery(name = "League.byName",
+                query = "From LeaguesEntity leagues " +
+                        "WHERE name = :name ")
+
+})
+
 @Entity
 @Table(name = "leagues", schema = "bazabaka", catalog = "")
 public class LeaguesEntity {

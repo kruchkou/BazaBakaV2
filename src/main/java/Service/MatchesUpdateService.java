@@ -12,29 +12,24 @@ public class MatchesUpdateService {
     public MatchesUpdateService() {
     }
 
-    public MatchesUpdatesEntity findMatchById(int id) {
+    public MatchesUpdatesEntity byId(int id) {
         return matchesUpdateDao.findById(id);
     }
 
-    public void saveUser(MatchesUpdatesEntity matchUpdate) {
+    public void save(MatchesUpdatesEntity matchUpdate) {
         matchesUpdateDao.save(matchUpdate);
     }
 
-    public void deleteUser(MatchesUpdatesEntity matchUpdate) {
+    public void delete(MatchesUpdatesEntity matchUpdate) {
         matchesUpdateDao.delete(matchUpdate);
     }
 
-    public void updateUser(MatchesUpdatesEntity matchUpdate) {
+    public void update(MatchesUpdatesEntity matchUpdate) {
         matchesUpdateDao.update(matchUpdate);
     }
 
-    public List<MatchesUpdatesEntity> findAllUsers() {
+    public List<MatchesUpdatesEntity> all() {
         return matchesUpdateDao.findAll();
     }
-
-//    public Auto findAutoById(int id) {
-//        return matchDao.findAutoById(id);
-//    }
-
 
 }

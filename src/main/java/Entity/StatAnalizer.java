@@ -22,7 +22,7 @@ public class StatAnalizer {
         int[] totals = new int[matchList.size()];
 
         for (int index = 0; index < matchesQuantity; index++) {
-            foras[index] = listMatches.get(index).getResult().getP1Fora()
+            foras[index] = listMatches.get(index).getResult().getP1Fora();
 
         }
 

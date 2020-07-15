@@ -12,29 +12,24 @@ public class AppuserService {
     public AppuserService() {
     }
 
-    public AppusersEntity findAppuserById(int id) {
+    public AppusersEntity byId(int id) {
         return appuserDao.findById(id);
     }
 
-    public void saveUser(AppusersEntity appuser) {
+    public void save(AppusersEntity appuser) {
         appuserDao.save(appuser);
     }
 
-    public void deleteUser(AppusersEntity appuser) {
+    public void delete(AppusersEntity appuser) {
         appuserDao.delete(appuser);
     }
 
-    public void updateUser(AppusersEntity appuser) {
+    public void update(AppusersEntity appuser) {
         appuserDao.update(appuser);
     }
 
-    public List<AppusersEntity> findAllUsers() {
+    public List<AppusersEntity> all() {
         return appuserDao.findAll();
     }
-
-//    public Auto findAutoById(int id) {
-//        return matchDao.findAutoById(id);
-//    }
-
-
+    
 }
