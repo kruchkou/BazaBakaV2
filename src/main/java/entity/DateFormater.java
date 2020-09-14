@@ -7,7 +7,6 @@ import java.util.Date;
 
 public class DateFormater {
 
-
     public static String getDate(String date) {
         String resultDate = "";
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");

@@ -22,7 +22,7 @@ public class DataController {
         ResultEntity resultEntity = resultService.getOrNewByParams(result);
         LeaguesEntity leaguesEntity = leagueService.byName(league);
 
-        matchService.insertIgnore(player1Entity,player2Entity,resultEntity,date,leaguesEntity);
+        matchService.insertIgnore(player1Entity, player2Entity, resultEntity, date, leaguesEntity);
 
     }
 

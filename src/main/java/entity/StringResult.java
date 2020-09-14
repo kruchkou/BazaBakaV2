@@ -75,4 +75,16 @@ public class StringResult {
     public void setSet7(String set7) {
         this.set7 = set7;
     }
+
+    public void setSet(int setNum, String result) {
+        switch (setNum){
+            case 1: this.set1 = result; break;
+            case 2: this.set2 = result; break;
+            case 3: this.set3 = result; break;
+            case 4: this.set4 = result; break;
+            case 5: this.set5 = result; break;
+            case 6: this.set6 = result; break;
+            case 7: this.set7 = result; break;
+        }
+    }
 }
