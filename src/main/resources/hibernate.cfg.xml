@@ -9,20 +9,20 @@
         <property name="connection.password">babloRusYan</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.show_sql">true</property>
-        <mapping class="Entity.DBEntity.AppusersEntity"/>
+        <mapping class="entity.dbEntity.AppusersEntity"/>
         <mapping resource="db/AppusersEntity.hbm.xml"/>
         <mapping resource="db/WinLsEntity.hbm.xml"/>
-        <mapping class="Entity.DBEntity.WinLsEntity"/>
+        <mapping class="entity.dbEntity.WinLsEntity"/>
         <mapping resource="db/LeaguesEntity.hbm.xml"/>
-        <mapping class="Entity.DBEntity.LeaguesEntity"/>
+        <mapping class="entity.dbEntity.LeaguesEntity"/>
         <mapping resource="db/MatchesLEntity.hbm.xml"/>
-        <mapping class="Entity.DBEntity.MatchesLEntity"/>
+        <mapping class="entity.dbEntity.MatchesLEntity"/>
         <mapping resource="db/MatchesUpdatesEntity.hbm.xml"/>
-        <mapping class="Entity.DBEntity.MatchesUpdatesEntity"/>
+        <mapping class="entity.dbEntity.MatchesUpdatesEntity"/>
         <mapping resource="db/PlayersEntity.hbm.xml"/>
-        <mapping class="Entity.DBEntity.PlayersEntity"/>
+        <mapping class="entity.dbEntity.PlayersEntity"/>
         <mapping resource="db/ResultEntity.hbm.xml"/>
-        <mapping class="Entity.DBEntity.ResultEntity"/>
+        <mapping class="entity.dbEntity.ResultEntity"/>
 
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

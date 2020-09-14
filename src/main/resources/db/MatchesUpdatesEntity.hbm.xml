@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entity.DBEntity.MatchesUpdatesEntity" table="matchesUpdates" schema="bazabaka">
+    <class name="entity.dbEntity.MatchesUpdatesEntity" table="matchesUpdates" schema="bazabaka">
         <id name="id">
             <column name="id" sql-type="int(10) unsigned"/>
         </id>

@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entity.DBEntity.MatchesLEntity" table="matchesL" schema="bazabaka">
+    <class name="entity.dbEntity.MatchesLEntity" table="matchesL" schema="bazabaka">
         <id name="idmatches">
             <column name="idmatches" sql-type="int(11)"/>
         </id>
@@ -17,16 +17,16 @@
         <property name="winR2">
             <column name="winR2" sql-type="double" precision="-1" not-null="true"/>
         </property>
-        <many-to-one name="player1" class="Entity.DBEntity.PlayersEntity">
+        <many-to-one name="player1" class="entity.dbEntity.PlayersEntity">
             <column name="player1"/>
         </many-to-one>
-        <many-to-one name="player2" class="Entity.DBEntity.PlayersEntity">
+        <many-to-one name="player2" class="entity.dbEntity.PlayersEntity">
             <column name="player2"/>
         </many-to-one>
-        <many-to-one name="result" class="Entity.DBEntity.ResultEntity">
+        <many-to-one name="result" class="entity.dbEntity.ResultEntity">
             <column name="result"/>
         </many-to-one>
-        <many-to-one name="league" class="Entity.DBEntity.LeaguesEntity">
+        <many-to-one name="league" class="entity.dbEntity.LeaguesEntity">
             <column name="league"/>
         </many-to-one>
     </class>

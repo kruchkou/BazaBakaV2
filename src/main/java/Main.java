@@ -1,11 +1,6 @@
-import Entity.DBEntity.LeaguesEntity;
-import Entity.DBEntity.MatchesLEntity;
-import Entity.DBEntity.PlayersEntity;
-import Entity.DBEntity.ResultEntity;
-import Service.LeagueService;
-import Service.MatchService;
-import Service.PlayerService;
-import Service.ResultService;
+import controller.DataController;
+import entity.StringResult;
+import service.*;
 
 public class Main {
 
@@ -54,7 +49,13 @@ public class Main {
 //        Григорий Служенко
 //        1:3 9:11 11:6 10:12 5:11 null null null
 
-MatchesLEntity ml = matchService.byParams("Григорий Служенко","Андрей Мошкутело","1:3","9:11","11:6","10:12","5:11","null","null","null","2020-07-15 21:00","Pro Spin Series");
-        System.out.println(ml.getDate());
+
+
+//MatchesLEntity ml = matchService.byParams("Григорий Служенко","Андрей Мошкутело","1:3","9:11","11:6","10:12","5:11","null","null","null","2020-07-15 21:00","Pro Spin Series");
+//        System.out.println(ml.getDate());
+
+        DataController ds = new DataController();
+        ds.insertMatch("Алишер Каримжанов","",new StringResult(),"","");
+
     }
 }

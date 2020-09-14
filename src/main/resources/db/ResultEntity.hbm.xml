@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="Entity.DBEntity.ResultEntity" table="result" schema="bazabaka">
+    <class name="entity.dbEntity.ResultEntity" table="result" schema="bazabaka">
         <id name="idresult">
             <column name="idresult" sql-type="int(11)"/>
         </id>
@@ -36,7 +36,7 @@
             <key>
                 <column name="result"/>
             </key>
-            <one-to-many not-found="ignore" class="Entity.DBEntity.MatchesLEntity"/>
+            <one-to-many not-found="ignore" class="entity.dbEntity.MatchesLEntity"/>
         </set>
     </class>
 </hibernate-mapping>
