@@ -4,13 +4,13 @@ public class StringResult {
 
     private String score;
 
-    private String set1;
-    private String set2;
-    private String set3;
-    private String set4;
-    private String set5;
-    private String set6;
-    private String set7;
+    private String set1 = "null";
+    private String set2 = "null";
+    private String set3 = "null";
+    private String set4 = "null";
+    private String set5 = "null";
+    private String set6 = "null";
+    private String set7 = "null";
 
     public String getScore() {
         return score;

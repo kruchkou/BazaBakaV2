@@ -82,13 +82,13 @@ public class MatchService {
         return matchList;
     }
 
-//    public MatchesLEntity byParams(String p1name, String p2name, String score, String set1, String set2, String set3, String set4, String set5, String set6, String set7, String date, String league) {
-//        List<MatchesLEntity> matchesLList = matchDao.byParams(p1name, p2name, score, set1, set2, set3, set4, set5, set6, set7, date, league);
-//        if (matchesLList.size() == 0) {
-//            return null;
-//        }
-//        return matchesLList.get(0);
-//    }
+    public MatchesLEntity byParams(String p1name, String p2name, String score, String set1, String set2, String set3, String set4, String set5, String set6, String set7, String date, String league) {
+        List<MatchesLEntity> matchesLList = matchDao.byParams(p1name, p2name, score, set1, set2, set3, set4, set5, set6, set7, date, league);
+        if (matchesLList.size() == 0) {
+            return null;
+        }
+        return matchesLList.get(0);
+    }
 
     public MatchesLEntity byId(PlayersEntity player1, PlayersEntity player2, ResultEntity result, String date, LeaguesEntity league) {
         List<MatchesLEntity> matchesLList = matchDao.byId(player1, player2, result, date, league);
@@ -99,6 +99,7 @@ public class MatchService {
     }
 
     public void insertIgnore(PlayersEntity player1, PlayersEntity player2, ResultEntity result, String date, LeaguesEntity league) {
+        //MatchesLEntity match = byId(player1, player2, result, date, league);
         MatchesLEntity match = byId(player1, player2, result, date, league);
 
         if (match == null) {

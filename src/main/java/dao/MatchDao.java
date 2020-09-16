@@ -106,7 +106,7 @@ public class MatchDao {
 
     public List<MatchesLEntity> byId(PlayersEntity player1, PlayersEntity player2, ResultEntity result, String date, LeaguesEntity league) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        return session.createNamedQuery("Match.byParams")
+        return session.createNamedQuery("Match.byId")
                 .setParameter("p1id",player1.getIdplayers())
                 .setParameter("p2id",player2.getIdplayers())
                 .setParameter("resultid",result.getIdresult())

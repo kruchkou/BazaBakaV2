@@ -17,7 +17,7 @@ import static java.lang.Thread.sleep;
 
 public class SeleniumController {
 
-    static ArrayList<String> leagues;
+    private List<String> leagues;
 
     public List<SeleniumMatch> getNewMatches() throws SeleniumInitException, InterruptedException {
         ChromeDriver driver = init();
@@ -47,7 +47,9 @@ public class SeleniumController {
         }
 
         System.out.printf("Отсканированно %d матчей", seleniumMatchList.size());
-        return null;
+
+        driver.quit();
+        return seleniumMatchList;
     }
 
     private ChromeDriver init() throws SeleniumInitException {
@@ -58,14 +60,18 @@ public class SeleniumController {
         options.addArguments("--no-sandbox");
         options.addArguments("--lang=ru");
 
-        ChromeDriver driver = new ChromeDriver(options);
-        return driver;
+        try {
+            return new ChromeDriver(options);
+        }
+        catch (RuntimeException e) {
+            throw new SeleniumInitException("Error init chrome",e);
+        }
     }
 
     //region GSC
 
-    public static void setLeagues(ArrayList<String> leagues) {
-        SeleniumController.leagues = leagues;
+    public void setLeagues(List<String> leagues) {
+        this.leagues = leagues;
     }
 
     //endregion

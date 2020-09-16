@@ -55,7 +55,7 @@ public class Main {
 //        System.out.println(ml.getDate());
 
         DataController ds = new DataController();
-        ds.insertMatch("Алишер Каримжанов","",new StringResult(),"","");
+        //ds.insertMatch("Алишер Каримжанов","",new StringResult(),"","");
 
     }
 }
