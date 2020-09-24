@@ -56,6 +56,9 @@ public class Main {
 
         DataController ds = new DataController();
         //ds.insertMatch("Алишер Каримжанов","",new StringResult(),"","");
+        StringResult sr = new StringResult();
+        sr.setScore("3:3");
+        //ds.insertMatch("Алишер Каримжанов","Анатолий Пчелинцев",sr,"2021-09-16 18:24","Pro Spin Series");
 
     }
 }

@@ -106,12 +106,13 @@ public class MatchDao {
 
     public List<MatchesLEntity> byId(PlayersEntity player1, PlayersEntity player2, ResultEntity result, String date, LeaguesEntity league) {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        int a = 5;
         return session.createNamedQuery("Match.byId")
-                .setParameter("p1id",player1.getIdplayers())
-                .setParameter("p2id",player2.getIdplayers())
-                .setParameter("resultid",result.getIdresult())
+                .setParameter("p1id", player1)
+                .setParameter("p2id", player2)
+                .setParameter("resultid",result)
                 .setParameter("date",date)
-                .setParameter("leagueid",league.getIdleague())
+                .setParameter("leagueid",league)
                 .getResultList();
     }
 
