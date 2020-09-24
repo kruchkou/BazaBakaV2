@@ -31,5 +31,14 @@ public class AppuserService {
     public List<AppusersEntity> all() {
         return appuserDao.findAll();
     }
+
+    public boolean checkAccess(String mac){
+        for(AppusersEntity user : appuserDao.findAll()){
+            if(user.getMac().equals(mac)){
+                return true;
+            }
+        }
+        return false;
+    }
     
 }

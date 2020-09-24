@@ -1,15 +1,10 @@
 package controller;
 
 import controller.entity.SeleniumMatch;
-import entity.dbEntity.LeaguesEntity;
-import entity.dbEntity.MatchesLEntity;
-import entity.dbEntity.PlayersEntity;
-import entity.dbEntity.ResultEntity;
+import entity.MatchList;
+import entity.dbEntity.*;
 import entity.StringResult;
-import service.LeagueService;
-import service.MatchService;
-import service.PlayerService;
-import service.ResultService;
+import service.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +14,7 @@ public class DataController {
     PlayerService playerService = new PlayerService();
     ResultService resultService = new ResultService();
     LeagueService leagueService = new LeagueService();
+    AppuserService appuserService = new AppuserService();
 
     public void insertMatch(String player1, String player2, StringResult result, String date, String league) {
         PlayersEntity player1Entity = playerService.getOrNewByName(player1);
@@ -40,6 +36,26 @@ public class DataController {
         return leagueList;
     }
 
+    public MatchList getPlayerMatches(int quantity, String name, String league){
+        return matchService.getPlMatches(quantity,name,league);
+    }
+
+    public  MatchList get2PlayerMatches(int quantity, String p1name, String p2name, String league){
+        return matchService.get2PlMatches(quantity, p1name, p2name, league);
+    }
+
+    public List<String> getAllPlayerNames(){
+        return playerService.all();
+    }
+
+    public List<AppusersEntity> getUsers(){
+        return appuserService.all();
+    }
+
+    public boolean checkUserAccess(String mac){
+        return appuserService.checkAccess(mac);
+    }
+
     public void insertMatches(List<SeleniumMatch> seleniumMatchList) {
 
         for(SeleniumMatch seleniumMatch : seleniumMatchList) {
@@ -51,5 +67,7 @@ public class DataController {
             matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity);
         }
     }
+
+
 
 }
