@@ -1,5 +1,8 @@
-package entity;
+package util;
 
+import entity.Analize;
+import entity.Match;
+import entity.MatchList;
 import entity.dbEntity.MatchesLEntity;
 
 import java.util.List;

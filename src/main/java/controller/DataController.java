@@ -10,11 +10,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataController {
+
+    private static DataController instance;
     MatchService matchService = new MatchService();
     PlayerService playerService = new PlayerService();
     ResultService resultService = new ResultService();
     LeagueService leagueService = new LeagueService();
     AppuserService appuserService = new AppuserService();
+
+    public static DataController getInstance() {
+        if (instance == null) {
+            instance = new DataController();
+        }
+
+        return instance;
+    }
+
+    private DataController() {
+    }
 
     public void insertMatch(String player1, String player2, StringResult result, String date, String league) {
         PlayersEntity player1Entity = playerService.getOrNewByName(player1);
@@ -55,6 +68,11 @@ public class DataController {
     public boolean checkUserAccess(String mac){
         return appuserService.checkAccess(mac);
     }
+
+    public String getLastMatchDate(){
+        return matchService.getMatches(1,"").getMatch(0).getDateAndTime();
+    }
+
 
     public void insertMatches(List<SeleniumMatch> seleniumMatchList) {
 

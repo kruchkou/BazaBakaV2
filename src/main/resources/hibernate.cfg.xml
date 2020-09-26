@@ -4,9 +4,10 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://130.193.46.131:3306/bazabakav2</property>
-         <property name="connection.username">Appuser</property>
-        <property name="connection.password">babloRusYan</property>
+        <property name="connection.url">jdbc:mysql://130.193.46.131:3306/bazabaka</property>
+        <!--<property name="connection.url">jdbc:mysql://localhost:3306/bazabakav2</property>-->
+        <property name="connection.username">baker</property>
+        <property name="connection.password">BazaBaker1</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.show_sql">true</property>
         <mapping class="entity.dbEntity.AppusersEntity"/>

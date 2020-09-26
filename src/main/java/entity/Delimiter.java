@@ -1,8 +1,9 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Delimiter {
+public class Delimiter implements Serializable {
 
     ArrayList<MatchList> matchListByDate;
     ArrayList<MatchList> matchListByQuantity;

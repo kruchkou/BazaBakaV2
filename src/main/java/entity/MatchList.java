@@ -1,11 +1,13 @@
 package entity;
 
 import entity.dbEntity.MatchesLEntity;
+import util.WinR;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MatchList {
+public class MatchList implements Serializable {
 
     private ArrayList<Match> matchList;
     private Delimiter delimiter;
@@ -44,7 +46,7 @@ public class MatchList {
     }
 
     public Delimiter getDelimiter(int delimNum) {
-        delimiter = new Delimiter(this,delimNum);
+        delimiter = new Delimiter(this, delimNum);
         return delimiter;
     }
 
@@ -66,7 +68,7 @@ public class MatchList {
     public MatchList(MatchList matchList, int startIndex, int endIndex) {
         this.matchList = new ArrayList<>();
         if (endIndex > matchList.size()) {
-            endIndex = matchList.size()-1;
+            endIndex = matchList.size() - 1;
         }
         for (int index = startIndex; index <= endIndex; index++) {
             this.matchList.add(matchList.getMatch(index));
@@ -84,13 +86,16 @@ public class MatchList {
 
     @Override
     public String toString() {
-        Match firstMatch = getMatch(0);
         StringBuilder resultSB = new StringBuilder();
-        String line = String.format("%s - %d | %d - %s\n",firstMatch.getPlayer1(),playerWins(1),playerWins(2),firstMatch.getPlayer2());
-        resultSB.append(line);
-        for(Match match: matchList) {
-            line = match.toStringWinR();
+        if (size() != 0) {
+            Match firstMatch = getMatch(0);
+
+            String line = String.format("%s - %d | %d - %s\n", firstMatch.getPlayer1(), playerWins(1), playerWins(2), firstMatch.getPlayer2());
             resultSB.append(line);
+            for (Match match : matchList) {
+                line = match.toStringWinR();
+                resultSB.append(line);
+            }
         }
         return resultSB.toString();
     }

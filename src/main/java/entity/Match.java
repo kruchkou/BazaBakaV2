@@ -1,8 +1,11 @@
 package entity;
 
 import entity.dbEntity.MatchesLEntity;
+import util.DateFormater;
 
-public class Match {
+import java.io.Serializable;
+
+public class Match implements Serializable {
 
     private String date;
     private String player1;
@@ -78,6 +81,10 @@ public class Match {
 
     public String getDate() {
         return DateFormater.getDate(this.date);
+    }
+
+    public String getDateAndTime() {
+        return date;
     }
 
     public String dateByApp() {

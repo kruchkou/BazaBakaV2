@@ -2,7 +2,9 @@ package entity;
 
 import entity.dbEntity.ResultEntity;
 
-public class Result {
+import java.io.Serializable;
+
+public class Result implements Serializable {
 
     private int p1Score;
     private int p2Score;
