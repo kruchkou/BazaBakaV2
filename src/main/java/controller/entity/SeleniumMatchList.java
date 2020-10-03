@@ -17,23 +17,6 @@ public class SeleniumMatchList {
         matchList.add(seleniumMatch);
     }
 
-    public String getLastMatchDate() {
-        String lastDate = null;
-
-        if (matchList.size() > 0) {
-            lastDate = matchList.get(0).getDate();
-
-            for (SeleniumMatch seleniumMatch : matchList) {
-                String matchDate = seleniumMatch.getDate();
-
-                if (matchDate.compareTo(lastDate) > 0) {
-                    lastDate = matchDate;
-                }
-            }
-        }
-        return lastDate;
-    }
-
     public void addAll(SeleniumMatchList seleniumMatchList) {
         matchList.addAll(seleniumMatchList.getMatchList());
     }
