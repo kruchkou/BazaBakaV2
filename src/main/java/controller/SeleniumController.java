@@ -1,16 +1,15 @@
 package controller;
 
 import controller.entity.SeleniumMatchBuilder;
+import controller.entity.SeleniumMatchList;
 import controller.entity.WebElementFactory;
 import controller.exception.SeleniumInitException;
 import controller.entity.SeleniumMatch;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Thread.sleep;
@@ -19,14 +18,14 @@ public class SeleniumController {
 
     private List<String> leagues;
 
-    public List<SeleniumMatch> getNewMatches() throws SeleniumInitException, InterruptedException {
+    public SeleniumMatchList getNewMatches() throws SeleniumInitException, InterruptedException {
         ChromeDriver driver = init();
 
-        List<SeleniumMatch> seleniumMatchList = new ArrayList<>();
+        SeleniumMatchList seleniumMatchList = new SeleniumMatchList();
         WebElementFactory webElementFactory = new WebElementFactory(driver);
         SeleniumMatchBuilder seleniumMatchBuilder = new SeleniumMatchBuilder();
 
-        driver.get("https://1xstavka.ru/results/");
+        driver.get("https://betwinner.com/results/");
 
         WebElement nastolkaButton = webElementFactory.getNastolkaButton();
         WebElement searchBox = webElementFactory.getSearchBox();
@@ -39,7 +38,7 @@ public class SeleniumController {
             searchBox.sendKeys(Keys.ENTER);
 
             List<WebElement> matchList = webElementFactory.getMatchList();
-            seleniumMatchList.addAll(seleniumMatchBuilder.getSeleniumMatch(matchList, leagueName));
+            seleniumMatchList.addAll(seleniumMatchBuilder.getSeleniumMatchList(matchList, leagueName));
 
             sleep(1000);
 
@@ -56,7 +55,7 @@ public class SeleniumController {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--lang=ru");
 

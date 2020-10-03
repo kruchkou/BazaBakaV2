@@ -1,6 +1,7 @@
 package controller;
 
 import controller.entity.SeleniumMatch;
+import controller.entity.SeleniumMatchList;
 import entity.MatchList;
 import entity.dbEntity.*;
 import entity.StringResult;
@@ -15,7 +16,7 @@ public class DataController {
     MatchService matchService = new MatchService();
     PlayerService playerService = new PlayerService();
     ResultService resultService = new ResultService();
-    LeagueService leagueService = new LeagueService();
+    LeagueService  leagueService = new LeagueService();
     AppuserService appuserService = new AppuserService();
 
     public static DataController getInstance() {
@@ -61,8 +62,14 @@ public class DataController {
         return playerService.all();
     }
 
-    public List<AppusersEntity> getUsers(){
-        return appuserService.all();
+    public List<String> getUsers(){
+        List<String> userList = new ArrayList<>();
+
+        List<AppusersEntity> appUserList = appuserService.all();
+        for(AppusersEntity appusersEntity: appUserList) {
+            userList.add(appusersEntity.getUsername());
+        }
+        return userList;
     }
 
     public boolean checkUserAccess(String mac){
@@ -74,9 +81,9 @@ public class DataController {
     }
 
 
-    public void insertMatches(List<SeleniumMatch> seleniumMatchList) {
+    public void insertMatches(SeleniumMatchList seleniumMatchList) {
 
-        for(SeleniumMatch seleniumMatch : seleniumMatchList) {
+        for(SeleniumMatch seleniumMatch : seleniumMatchList.getMatchList()) {
             PlayersEntity player1Entity = playerService.getOrNewByName(seleniumMatch.getPlayer1());
             PlayersEntity player2Entity = playerService.getOrNewByName(seleniumMatch.getPlayer2());
             ResultEntity resultEntity = resultService.getOrNewByParams(seleniumMatch.getResult());
@@ -84,6 +91,11 @@ public class DataController {
 
             matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity);
         }
+    }
+
+    public void insertLastMatchDate(String date) {
+
+
     }
 
 

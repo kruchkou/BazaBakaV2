@@ -1,4 +1,6 @@
-package controller;
+package controller.connection;
+
+import controller.connection.ApplicationController;
 
 import java.io.IOException;
 import java.net.ServerSocket;

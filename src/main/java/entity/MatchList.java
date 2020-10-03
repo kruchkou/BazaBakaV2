@@ -1,5 +1,6 @@
 package entity;
 
+import controller.connection.entity.TransferInterface;
 import entity.dbEntity.MatchesLEntity;
 import util.WinR;
 
@@ -7,7 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MatchList implements Serializable {
+public class MatchList implements TransferInterface {
 
     private ArrayList<Match> matchList;
     private Delimiter delimiter;

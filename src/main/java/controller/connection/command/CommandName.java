@@ -1,0 +1,11 @@
+package controller.connection.command;
+
+public enum CommandName {
+    GET_2_PL_MATCH_COMMAND,
+    GET_PL_MATCH_COMMAND,
+    GET_PLAYER_LIST_COMMAND,
+    GET_LEAGUE_LIST_COMMAND,
+    GET_ACCESS_COMMAND,
+    GET_LAST_MATCH_DATE_COMMAND,
+    GET_USER_LIST_COMMAND
+}

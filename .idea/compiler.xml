@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="bazabaka" />
-        <module name="BazaBakaV2" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="BazaBakaV2" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

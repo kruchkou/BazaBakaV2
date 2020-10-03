@@ -1,16 +1,18 @@
 package controller;
 
 import controller.exception.SeleniumInitException;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class CollectingController implements Runnable {
 
-    SeleniumController seleniumController = new SeleniumController();
-    DataController dataController = DataController.getInstance();
-
-    CollectingController.SeleniumTask task = new CollectingController.SeleniumTask();
+    private static final Logger logger = LogManager.getLogger(CollectingController.class);
+    private SeleniumController seleniumController = new SeleniumController();
+    private DataController dataController = DataController.getInstance();
+    private CollectingController.SeleniumTask task = new CollectingController.SeleniumTask();
 
     public void turnOnCollecting() {
         task.turnOnCollecting();
@@ -48,6 +50,7 @@ public class CollectingController implements Runnable {
                 System.out.println("Хром не был запущен. Ожидание следующей итерации..");
             } catch (InterruptedException interruptedException) {
                 interruptedException.printStackTrace();
+                logger.error("Ошибка прерывания потока");
             }
         }
     }

@@ -9,8 +9,8 @@ import java.util.List;
 
 public class SeleniumMatchBuilder {
 
-    public List<SeleniumMatch> getSeleniumMatch(List<WebElement> matchList, String league) {
-        List<SeleniumMatch> seleniumMatchList = new ArrayList<>();
+    public SeleniumMatchList getSeleniumMatchList(List<WebElement> matchList, String league) {
+        SeleniumMatchList seleniumMatchList = new SeleniumMatchList();
 
         for (WebElement elements : matchList) {
             String getInput = elements.getAttribute("innerText");
