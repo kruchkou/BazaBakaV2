@@ -1,9 +1,9 @@
 package controller;
 
-import controller.connection.ConnectionsController;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.lang.management.ManagementFactory;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -15,6 +15,7 @@ public class ServerController {
     public static void main(String[] args) {
 
         logger.info("Сервер запущен.");
+        logger.info(ManagementFactory.getRuntimeMXBean().getName());
         pool = Executors.newFixedThreadPool(2);
 
         pool.execute(new ConnectionsController());

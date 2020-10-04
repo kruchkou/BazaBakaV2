@@ -18,4 +18,8 @@ public interface TransferInterface extends Serializable {
         return (TransferString) this;
     }
 
+    default TransferStringList getAsTransferStringList() {
+        return (TransferStringList) this;
+    }
+
 }

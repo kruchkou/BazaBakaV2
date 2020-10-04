@@ -13,7 +13,8 @@ public class ClientController {
     private ObjectInputStream objectInputStream;
     private ObjectOutputStream objectOutputStream;
     private final CommandBuilder commandBuilder = CommandBuilder.getInstance();
-    private final String host = "130.193.46.131";
+    //private final String host = "130.193.46.131";
+    private final String host = "localhost";
     private final int port = 8030;
     private Socket clientSocket;
     private TransferObject transferObject;
@@ -27,7 +28,7 @@ public class ClientController {
         return (TransferObject) objectInputStream.readObject();
     }
 
-    public void getPlayerListCommand() {
+    public void getPlayerList() {
         transferObject.addCommand(commandBuilder.getPlayerListCommand());
     }
 
@@ -62,7 +63,7 @@ public class ClientController {
         transferObject = new TransferObject();
     }
 
-    private TransferObject execute() throws InterruptedException, IOException, ClassNotFoundException {
+    public TransferObject execute() throws InterruptedException, IOException, ClassNotFoundException {
         sendTransferObject(transferObject);
         Thread.sleep(500);
         transferObject = getTransferObject();

@@ -4,7 +4,7 @@ import controller.DataController;
 import controller.connection.command.Command;
 import entity.MatchList;
 
-public class Get2PlMatchCommand implements Command {
+public class Get2PlMatchCommand extends BasicCommand {
 
     @Override
     public MatchList execute() {

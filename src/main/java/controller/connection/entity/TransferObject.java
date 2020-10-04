@@ -3,10 +3,11 @@ package controller.connection.entity;
 import controller.connection.command.Command;
 import controller.connection.exception.TransferException;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TransferObject {
+public class TransferObject implements Serializable {
 
     private final List<Command> commandList = new ArrayList<>();
     private final List<TransferInterface> resultList = new ArrayList<>();

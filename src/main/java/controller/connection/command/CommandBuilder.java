@@ -1,5 +1,7 @@
 package controller.connection.command;
 
+import controller.connection.command.impl.BasicCommand;
+
 public class CommandBuilder {
 
     private static CommandBuilder instance;
@@ -15,13 +17,13 @@ public class CommandBuilder {
         return instance;
     }
 
-    public Command getPlayerListCommand() {
-        Command command = commandProvider.getCommand("get_player_list_command");
+    public BasicCommand getPlayerListCommand() {
+        BasicCommand command = commandProvider.getCommand("get_player_list_command");
         return command;
     }
 
-    public Command getPlMatchCommand(int quantity, String playerName, String league) {
-        Command command = commandProvider.getCommand("get_pl_match_command");
+    public BasicCommand getPlMatchCommand(int quantity, String playerName, String league) {
+        BasicCommand command = commandProvider.getCommand("get_pl_match_command");
         command.putParameter("quantity",String.valueOf(quantity));
         command.putParameter("playerName",playerName);
         command.putParameter("league",league);
@@ -29,8 +31,8 @@ public class CommandBuilder {
         return command;
     }
 
-    public Command get2PlayersMatchesCommand(int quantity, String player1Name, String player2Name, String league) {
-        Command command = commandProvider.getCommand("get_2_pl_match_command");
+    public BasicCommand get2PlayersMatchesCommand(int quantity, String player1Name, String player2Name, String league) {
+        BasicCommand command = commandProvider.getCommand("get_2_pl_match_command");
         command.putParameter("quantity",String.valueOf(quantity));
         command.putParameter("player1Name",player1Name);
         command.putParameter("player2Name",player2Name);
@@ -39,24 +41,24 @@ public class CommandBuilder {
         return command;
     }
 
-    public Command getLeaguesCommand() {
-        Command command = commandProvider.getCommand("get_league_list_command");
+    public BasicCommand getLeaguesCommand() {
+        BasicCommand command = commandProvider.getCommand("get_league_list_command");
         return command;
     }
 
-    public Command checkUserAccessCommand(String user_id) {
-        Command command = commandProvider.getCommand("get_access_command");
+    public BasicCommand checkUserAccessCommand(String user_id) {
+        BasicCommand command = commandProvider.getCommand("get_access_command");
         command.putParameter("user_id",user_id);
         return command;
     }
 
-    public Command getUsersListCommand() {
-        Command command = commandProvider.getCommand("get_user_list_command");
+    public BasicCommand getUsersListCommand() {
+        BasicCommand command = commandProvider.getCommand("get_user_list_command");
         return command;
     }
 
-    public Command getLastMatchDate() {
-        Command command = commandProvider.getCommand("get_last_match_date_command");
+    public BasicCommand getLastMatchDate() {
+        BasicCommand command = commandProvider.getCommand("get_last_match_date_command");
         return command;
     }
 

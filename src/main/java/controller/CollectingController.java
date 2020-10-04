@@ -42,12 +42,11 @@ public class CollectingController implements Runnable {
 
         @Override
         public void run() {
-            System.out.println("Запуск...");
             try {
                 seleniumController.setLeagues(dataController.getLeagues());
                 dataController.insertMatches(seleniumController.getNewMatches());
             } catch (SeleniumInitException seleniumInitException) {
-                System.out.println("Хром не был запущен. Ожидание следующей итерации..");
+                logger.error("Хром не был запущен. Ожидание следующей итерации");
             } catch (InterruptedException interruptedException) {
                 interruptedException.printStackTrace();
                 logger.error("Ошибка прерывания потока");

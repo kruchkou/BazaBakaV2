@@ -5,7 +5,7 @@ import controller.connection.command.Command;
 import controller.connection.entity.TransferBoolean;
 import controller.connection.entity.TransferInterface;
 
-public class GetAccessCommand implements Command {
+public class GetAccessCommand extends BasicCommand {
     @Override
     public TransferBoolean execute() {
         DataController dataController = DataController.getInstance();

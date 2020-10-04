@@ -4,7 +4,7 @@ import controller.DataController;
 import controller.connection.command.Command;
 import controller.connection.entity.TransferString;
 
-public class GetLastMatchDateCommand implements Command {
+public class GetLastMatchDateCommand extends BasicCommand {
 
     @Override
     public TransferString execute() {

@@ -4,7 +4,7 @@ import controller.DataController;
 import controller.connection.command.Command;
 import controller.connection.entity.TransferStringList;
 
-public class GetUserListCommand implements Command {
+public class GetUserListCommand extends BasicCommand {
 
     @Override
     public TransferStringList execute() {

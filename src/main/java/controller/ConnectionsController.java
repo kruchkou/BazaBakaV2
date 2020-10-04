@@ -1,6 +1,7 @@
-package controller.connection;
+package controller;
 
 import controller.connection.ApplicationController;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -10,6 +11,7 @@ import java.util.concurrent.Executors;
 
 public class ConnectionsController implements Runnable {
 
+    private static final Logger log = Logger.getLogger(ConnectionsController.class);
     private ServerSocket serverSocket;
     private ExecutorService pool;
     private final int poolSize = 15;
@@ -21,7 +23,6 @@ public class ConnectionsController implements Runnable {
 
         while (true) {
             Socket socket = serverSocket.accept();
-            System.out.println("Client connected!");
             pool.execute(new ApplicationController(socket));
         }
     }
@@ -31,7 +32,9 @@ public class ConnectionsController implements Runnable {
         try {
             turnOn();
         } catch (IOException e) {
+            log.error("Cant turn on connections controller");
             e.printStackTrace();
+
         }
     }
 }

@@ -5,6 +5,7 @@ import controller.entity.SeleniumMatchList;
 import controller.entity.WebElementFactory;
 import controller.exception.SeleniumInitException;
 import controller.entity.SeleniumMatch;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,6 +17,7 @@ import static java.lang.Thread.sleep;
 
 public class SeleniumController {
 
+    private static final Logger logger = Logger.getLogger(SeleniumController.class);
     private List<String> leagues;
 
     public SeleniumMatchList getNewMatches() throws SeleniumInitException, InterruptedException {
@@ -25,7 +27,7 @@ public class SeleniumController {
         WebElementFactory webElementFactory = new WebElementFactory(driver);
         SeleniumMatchBuilder seleniumMatchBuilder = new SeleniumMatchBuilder();
 
-        driver.get("https://betwinner.com/results/");
+        driver.get("https://1xstavka.ru/results/");
 
         WebElement nastolkaButton = webElementFactory.getNastolkaButton();
         WebElement searchBox = webElementFactory.getSearchBox();
@@ -45,7 +47,7 @@ public class SeleniumController {
             searchBox.sendKeys("\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b");
         }
 
-        System.out.printf("Отсканированно %d матчей", seleniumMatchList.size());
+        logger.info("Отсканированно матчей: " + seleniumMatchList.size());
 
         driver.quit();
         return seleniumMatchList;
@@ -61,9 +63,8 @@ public class SeleniumController {
 
         try {
             return new ChromeDriver(options);
-        }
-        catch (RuntimeException e) {
-            throw new SeleniumInitException("Error init chrome",e);
+        } catch (RuntimeException e) {
+            throw new SeleniumInitException("Error init chrome", e);
         }
     }
 
