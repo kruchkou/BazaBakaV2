@@ -17,7 +17,7 @@ public class CommandProvider {
         commands.put(CommandName.GET_PLAYER_LIST_COMMAND, new GetPlayerListCommand());
         commands.put(CommandName.GET_LEAGUE_LIST_COMMAND, new GetLeagueListCommand());
         commands.put(CommandName.GET_USER_LIST_COMMAND, new GetUserListCommand());
-
+        commands.put(CommandName.LOAD_PREV_DATA_COMMAND, new LoadPrevDataCommand());
     }
 
     public static CommandProvider getInstance() {

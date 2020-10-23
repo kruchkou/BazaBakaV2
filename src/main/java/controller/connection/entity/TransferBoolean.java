@@ -8,7 +8,7 @@ public class TransferBoolean implements TransferInterface {
         this.value = value;
     }
 
-    public boolean getAccess() {
+    public boolean getValue() {
         return value;
     }
 

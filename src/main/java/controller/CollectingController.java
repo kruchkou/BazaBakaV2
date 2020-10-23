@@ -9,10 +9,32 @@ import java.util.TimerTask;
 
 public class CollectingController implements Runnable {
 
+    private static final CollectingController instance = new CollectingController();
     private static final Logger logger = LogManager.getLogger(CollectingController.class);
     private SeleniumController seleniumController = new SeleniumController();
     private DataController dataController = DataController.getInstance();
     private CollectingController.SeleniumTask task = new CollectingController.SeleniumTask();
+
+    public static CollectingController getInstance() {
+        return instance;
+    }
+
+    public void collectPrevious(int month) {
+        turnOffCollecting();
+
+        seleniumController.setLeagues(dataController.getLeagues());
+        try {
+            seleniumController.getMatchesByDate(month);
+            logger.info("Успешная сброка данных");
+        } catch (SeleniumInitException e) {
+                logger.error("Хром не был запущен. Ожидание следующей итерации",e);
+        } catch (InterruptedException e) {
+                logger.error("Ошибка прерывания потока",e);
+        }
+        finally {
+            turnOnCollecting();
+        }
+    }
 
     public void turnOnCollecting() {
         task.turnOnCollecting();
@@ -38,6 +60,10 @@ public class CollectingController implements Runnable {
 
         public void turnOffCollecting() {
             timer.purge();
+        }
+
+        public void collectForMonth() {
+
         }
 
         @Override

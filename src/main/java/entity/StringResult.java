@@ -87,4 +87,18 @@ public class StringResult {
             case 7: this.set7 = result; break;
         }
     }
+
+    @Override
+    public String toString() {
+        return "StringResult{" +
+                "score='" + score + '\'' +
+                ", set1='" + set1 + '\'' +
+                ", set2='" + set2 + '\'' +
+                ", set3='" + set3 + '\'' +
+                ", set4='" + set4 + '\'' +
+                ", set5='" + set5 + '\'' +
+                ", set6='" + set6 + '\'' +
+                ", set7='" + set7 + '\'' +
+                '}';
+    }
 }
