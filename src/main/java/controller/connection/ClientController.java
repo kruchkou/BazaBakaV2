@@ -14,7 +14,7 @@ public class ClientController {
     private ObjectOutputStream objectOutputStream;
     private final CommandBuilder commandBuilder = CommandBuilder.getInstance();
     //private final String host = "130.193.46.131";
-    private final String host = "localhost";
+    private final String host = "178.154.224.83";
     private final int port = 8030;
     private Socket clientSocket;
     private TransferObject transferObject;
@@ -34,6 +34,10 @@ public class ClientController {
 
     public void getPlayersMatches(int quantity, String playerName, String league) {
         transferObject.addCommand(commandBuilder.getPlMatchCommand(quantity,playerName,league));
+    }
+
+    public void getPlayersMatches2(int quantity, String playerName, String league) {
+        transferObject.addCommand(commandBuilder.getPlMatch2Command(quantity,playerName,league));
     }
 
     public void get2PlayersMatches(int quantity, String player1Name, String player2Name, String league) {

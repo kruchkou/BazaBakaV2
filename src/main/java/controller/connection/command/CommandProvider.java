@@ -12,6 +12,7 @@ public class CommandProvider {
     public CommandProvider() {
         commands.put(CommandName.GET_2_PL_MATCH_COMMAND, new Get2PlMatchCommand());
         commands.put(CommandName.GET_PL_MATCH_COMMAND, new GetPlMatchCommand());
+        commands.put(CommandName.GET_PL_MATCH2_COMMAND, new GetPlMatchCommand());
         commands.put(CommandName.GET_ACCESS_COMMAND, new GetAccessCommand());
         commands.put(CommandName.GET_LAST_MATCH_DATE_COMMAND, new GetLastMatchDateCommand());
         commands.put(CommandName.GET_PLAYER_LIST_COMMAND, new GetPlayerListCommand());

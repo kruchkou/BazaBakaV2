@@ -1,12 +1,11 @@
 package controller.connection.command;
 
-import controller.connection.entity.TransferInterface;
+import controller.connection.entity.impl.TransferElement;
 
 import java.io.Serializable;
-import java.util.HashMap;
 
 public interface Command extends Serializable {
 
-    TransferInterface execute();
+    TransferElement execute();
 
 }

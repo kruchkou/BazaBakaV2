@@ -1,18 +1,14 @@
 package service;
 
-import controller.CollectingController;
 import dao.ResultDao;
 import entity.dbEntity.ResultEntity;
 import entity.StringResult;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 
 import java.util.List;
 
 public class ResultService {
 
     private ResultDao resultDao = new ResultDao();
-    private static final Logger logger = LogManager.getLogger(ResultService.class);
 
     public ResultService() {
     }
@@ -52,7 +48,7 @@ public class ResultService {
             ResultEntity newResult = new ResultEntity();
 
             newResult.setAll(params);
-            logger.info(params);
+
             save(newResult);
 
             return byParams(params);

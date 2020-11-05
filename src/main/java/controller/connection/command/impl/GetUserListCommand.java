@@ -1,8 +1,7 @@
 package controller.connection.command.impl;
 
 import controller.DataController;
-import controller.connection.command.Command;
-import controller.connection.entity.TransferStringList;
+import controller.connection.entity.impl.TransferStringList;
 
 public class GetUserListCommand extends BasicCommand {
 

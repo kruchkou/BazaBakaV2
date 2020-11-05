@@ -32,7 +32,7 @@ public class ConnectionsController implements Runnable {
         try {
             turnOn();
         } catch (IOException e) {
-            log.error("Cant turn on connections controller");
+            log.error("Cant turn on connections controller | "+e.getMessage(),e);
             e.printStackTrace();
 
         }

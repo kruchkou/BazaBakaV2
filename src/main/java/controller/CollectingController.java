@@ -11,12 +11,15 @@ public class CollectingController implements Runnable {
 
     private static final CollectingController instance = new CollectingController();
     private static final Logger logger = LogManager.getLogger(CollectingController.class);
-    private SeleniumController seleniumController = new SeleniumController();
-    private DataController dataController = DataController.getInstance();
-    private CollectingController.SeleniumTask task = new CollectingController.SeleniumTask();
+    private final SeleniumController seleniumController = new SeleniumController();
+    private final DataController dataController = DataController.getInstance();
+    private final CollectingController.SeleniumTask task = new CollectingController.SeleniumTask();
 
     public static CollectingController getInstance() {
         return instance;
+    }
+
+    private CollectingController() {
     }
 
     public void collectPrevious(int month) {
@@ -60,10 +63,6 @@ public class CollectingController implements Runnable {
 
         public void turnOffCollecting() {
             timer.purge();
-        }
-
-        public void collectForMonth() {
-
         }
 
         @Override

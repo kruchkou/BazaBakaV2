@@ -1,9 +1,7 @@
 package controller.connection.command.impl;
 
 import controller.DataController;
-import controller.connection.command.Command;
-import controller.connection.entity.TransferBoolean;
-import controller.connection.entity.TransferInterface;
+import controller.connection.entity.impl.TransferBoolean;
 
 public class GetAccessCommand extends BasicCommand {
     @Override

@@ -31,6 +31,15 @@ public class CommandBuilder {
         return command;
     }
 
+    public BasicCommand getPlMatch2Command(int quantity, String playerName, String league) {
+        BasicCommand command = commandProvider.getCommand("get_pl_match2_command");
+        command.putParameter("quantity",String.valueOf(quantity));
+        command.putParameter("playerName",playerName);
+        command.putParameter("league",league);
+
+        return command;
+    }
+
     public BasicCommand get2PlayersMatchesCommand(int quantity, String player1Name, String player2Name, String league) {
         BasicCommand command = commandProvider.getCommand("get_2_pl_match_command");
         command.putParameter("quantity",String.valueOf(quantity));

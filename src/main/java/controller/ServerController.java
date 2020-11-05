@@ -19,7 +19,7 @@ public class ServerController {
         pool = Executors.newFixedThreadPool(2);
 
         pool.execute(new ConnectionsController());
-        pool.execute(new CollectingController());
+        pool.execute(CollectingController.getInstance());
 
     }
 

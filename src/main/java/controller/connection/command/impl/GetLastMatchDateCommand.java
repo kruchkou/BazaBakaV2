@@ -1,8 +1,7 @@
 package controller.connection.command.impl;
 
 import controller.DataController;
-import controller.connection.command.Command;
-import controller.connection.entity.TransferString;
+import controller.connection.entity.impl.TransferString;
 
 public class GetLastMatchDateCommand extends BasicCommand {
 

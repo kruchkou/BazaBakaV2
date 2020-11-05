@@ -1,7 +1,6 @@
 package controller.connection.command.impl;
 
 import controller.DataController;
-import controller.connection.command.Command;
 import entity.MatchList;
 
 public class GetPlMatchCommand extends BasicCommand {

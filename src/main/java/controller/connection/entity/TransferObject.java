@@ -1,6 +1,7 @@
 package controller.connection.entity;
 
 import controller.connection.command.Command;
+import controller.connection.entity.impl.TransferElement;
 import controller.connection.exception.TransferException;
 
 import java.io.Serializable;
@@ -9,8 +10,10 @@ import java.util.List;
 
 public class TransferObject implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private final List<Command> commandList = new ArrayList<>();
-    private final List<TransferInterface> resultList = new ArrayList<>();
+    private final List<TransferElement> resultList = new ArrayList<>();
 
     public void addCommand(Command command) {
         commandList.add(command);
