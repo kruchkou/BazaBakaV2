@@ -1,9 +1,7 @@
 package controller;
 
-import com.mysql.cj.exceptions.DataTruncationException;
 import controller.entity.SeleniumMatch;
 import controller.entity.SeleniumMatchList;
-import dao.ResultDao;
 import entity.MatchList;
 import entity.StringUser;
 import entity.dbEntity.*;
@@ -12,7 +10,6 @@ import org.apache.log4j.Logger;
 import org.hibernate.exception.DataException;
 import service.*;
 
-import java.sql.DataTruncation;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,8 +105,8 @@ public class DataController {
     }
 
 
-    public boolean addUnregUser(String nickname, String android_id){
-        if(unregUsersService.canWriteNick(nickname)){
+    public boolean addUnregisteredUser(String nickname, String android_id){
+        if(unregUsersService.isNicknameExistAlready(nickname)){
             UnregUsersEntity usersEntity = new UnregUsersEntity();
             usersEntity.setNickname(nickname);
             usersEntity.setUserId(android_id);
@@ -121,7 +118,7 @@ public class DataController {
     }
 
 
-    public List<StringUser> getUnregUsers(){
+    public List<StringUser> getUnregisteredUsers(){
         List<StringUser> unregList = new ArrayList<>();
 
         List<UnregUsersEntity> dbList = unregUsersService.all();

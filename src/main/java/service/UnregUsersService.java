@@ -34,7 +34,7 @@ public class UnregUsersService {
         return unregUsersDao.findAll();
     }
 
-    public boolean canWriteNick(String name){
+    public boolean isNicknameExistAlready(String name){
         List<UnregUsersEntity> list = unregUsersDao.findAll();
         if(list.isEmpty()){
             return true;

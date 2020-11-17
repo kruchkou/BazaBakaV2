@@ -26,7 +26,7 @@ public class CommandProvider {
         commands.put(CommandName.GET_LEAGUE_LIST_COMMAND, new GetLeagueListCommand());
         commands.put(CommandName.GET_USER_LIST_COMMAND, new GetUserListCommand());
         commands.put(CommandName.LOAD_PREV_DATA_COMMAND, new LoadPrevDataCommand());
-        commands.put(CommandName.SEND_NICKNAME_COMMAND,new SendNickNameCommand());
+        commands.put(CommandName.WRITE_UNREGISTERED_USER,new WriteUnregisteredUserCommand());
     }
 
     public static CommandProvider getInstance() {
