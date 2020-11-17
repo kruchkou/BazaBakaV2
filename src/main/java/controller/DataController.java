@@ -9,6 +9,7 @@ import entity.StringUser;
 import entity.dbEntity.*;
 import entity.StringResult;
 import org.apache.log4j.Logger;
+import org.hibernate.exception.DataException;
 import service.*;
 
 import java.sql.DataTruncation;
@@ -101,15 +102,11 @@ public class DataController {
 
                 matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity);
             }
-        } catch (DataTruncationException e) {
+        } catch (DataException e) {
             logger.error("Неверные данные пришли в insertMatch", e);
         }
     }
 
-    public void insertLastMatchDate(String date) {
-
-
-    }
 
     public boolean addUnregUser(String nickname, String android_id){
         if(unregUsersService.canWriteNick(nickname)){
@@ -122,7 +119,6 @@ public class DataController {
         else
             return false;
     }
-
 
 
     public List<StringUser> getUnregUsers(){
