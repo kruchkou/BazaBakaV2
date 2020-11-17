@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="entity.dbEntity.UnregUsersEntity" table="unregUsers" schema="bazabaka">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="userId">
+            <column name="user_id" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="nickname">
+            <column name="nickname" sql-type="varchar(20)" length="20"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -21,7 +21,7 @@ public class HibernateSessionFactoryUtil {
                 configuration.addAnnotatedClass(WinLsEntity.class);
                 configuration.addAnnotatedClass(MatchesUpdatesEntity.class);
                 configuration.addAnnotatedClass(AppusersEntity.class);
-
+                configuration.addAnnotatedClass(UnregUsersEntity.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
 

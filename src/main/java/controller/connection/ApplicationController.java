@@ -37,10 +37,10 @@ public class ApplicationController implements Runnable {
             handleRequest(transferObject);
 
         } catch (IOException e) {
-            logger.error("Проблема на уровне подключения сервера");
+            logger.error("Проблема на уровне подключения сервера"+e.getStackTrace().toString());
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            logger.error("Некорректный класс пришел");
+            logger.error("Некорректный класс пришел jopa");
             e.printStackTrace();
         } finally {
             try {

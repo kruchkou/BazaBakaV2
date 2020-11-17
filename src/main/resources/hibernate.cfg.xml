@@ -2,10 +2,12 @@
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
 <hibernate-configuration>
     <session-factory>
         <!--property name="connection.url">jdbc:mysql://178.154.224.83:3306/bazabaka</property-->
         <property name="connection.url">jdbc:mysql://localhost:3306/bazabaka</property>
+        <!--<property name="connection.url">jdbc:mysql://178.154.224.83:3306/bazabaka</property>-->
         <property name="connection.username">baker</property>
         <property name="connection.password">BazaBaker1</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
@@ -24,8 +26,11 @@
         <mapping class="entity.dbEntity.PlayersEntity"/>
         <mapping resource="db/ResultEntity.hbm.xml"/>
         <mapping class="entity.dbEntity.ResultEntity"/>
-
+        <mapping resource="db/UnregUsersEntity.hbm.xml"/>
+        <mapping class="entity.dbEntity.UnregUsersEntity"/>
+        <mapping class="entity.dbEntity.AndroidIdEntity"/>
+        <mapping class="entity.dbEntity.RoleEntity"/>
         <!-- DB schema will be updated if needed -->
-        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+<!--        <property name="hibernate.hbm2ddl.auto">update</property>-->
     </session-factory>
 </hibernate-configuration>

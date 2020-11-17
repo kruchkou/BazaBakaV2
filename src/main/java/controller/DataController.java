@@ -3,6 +3,7 @@ package controller;
 import controller.entity.SeleniumMatch;
 import controller.entity.SeleniumMatchList;
 import entity.MatchList;
+import entity.StringUser;
 import entity.dbEntity.*;
 import entity.StringResult;
 import service.*;
@@ -18,6 +19,7 @@ public class DataController {
     ResultService resultService = new ResultService();
     LeagueService  leagueService = new LeagueService();
     AppuserService appuserService = new AppuserService();
+    UnregUsersService unregUsersService = new UnregUsersService();
 
     public static DataController getInstance() {
         if (instance == null) {
@@ -94,6 +96,34 @@ public class DataController {
     }
 
     public void insertLastMatchDate(String date) {
+
+
+    }
+
+    public boolean addUnregUser(String nickname, String android_id){
+        if(unregUsersService.canWriteNick(nickname)){
+            UnregUsersEntity usersEntity = new UnregUsersEntity();
+            usersEntity.setNickname(nickname);
+            usersEntity.setUserId(android_id);
+            unregUsersService.save(usersEntity);
+            return true;
+        }
+        else
+            return false;
+    }
+
+
+
+    public List<StringUser> getUnregUsers(){
+        List<StringUser> unregList = new ArrayList<>();
+
+        List<UnregUsersEntity> dbList = unregUsersService.all();
+
+        for(UnregUsersEntity u : dbList){
+            unregList.add(new StringUser(u.getNickname(),u.getUserId()));
+        }
+
+        return unregList;
 
 
     }
