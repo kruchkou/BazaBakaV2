@@ -50,7 +50,6 @@ public class ResultService {
             newResult.setAll(params);
 
             save(newResult);
-
             return byParams(params);
         }
         return result;

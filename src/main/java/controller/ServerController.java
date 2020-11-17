@@ -14,7 +14,7 @@ public class ServerController {
 
     public static void main(String[] args) {
 
-        logger.info("Сервер запущен.");
+        logger.info("Сервер запущен. v0.1");
         logger.info(ManagementFactory.getRuntimeMXBean().getName());
         pool = Executors.newFixedThreadPool(2);
 

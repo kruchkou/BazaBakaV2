@@ -50,6 +50,7 @@ public class CollectingController implements Runnable {
     @Override
     public void run() {
         CollectingController collectingController = new CollectingController();
+
         collectingController.turnOnCollecting();
     }
 
@@ -71,10 +72,9 @@ public class CollectingController implements Runnable {
                 seleniumController.setLeagues(dataController.getLeagues());
                 dataController.insertMatches(seleniumController.getNewMatches());
             } catch (SeleniumInitException seleniumInitException) {
-                logger.error("Хром не был запущен. Ожидание следующей итерации");
+                logger.error("Хром не был запущен. Ожидание следующей итерации", seleniumInitException);
             } catch (InterruptedException interruptedException) {
-                interruptedException.printStackTrace();
-                logger.error("Ошибка прерывания потока");
+                logger.error("Ошибка прерывания потока", interruptedException);
             }
         }
     }

@@ -1,17 +1,23 @@
 package controller;
 
+import com.mysql.cj.exceptions.DataTruncationException;
 import controller.entity.SeleniumMatch;
 import controller.entity.SeleniumMatchList;
+import dao.ResultDao;
 import entity.MatchList;
 import entity.StringUser;
 import entity.dbEntity.*;
 import entity.StringResult;
+import org.apache.log4j.Logger;
 import service.*;
 
+import java.sql.DataTruncation;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataController {
+
+    private static final Logger logger = org.apache.log4j.LogManager.getLogger(DataController.class);
 
     private static DataController instance;
     MatchService matchService = new MatchService();
@@ -85,13 +91,18 @@ public class DataController {
 
     public void insertMatches(SeleniumMatchList seleniumMatchList) {
 
-        for(SeleniumMatch seleniumMatch : seleniumMatchList.getMatchList()) {
-            PlayersEntity player1Entity = playerService.getOrNewByName(seleniumMatch.getPlayer1());
-            PlayersEntity player2Entity = playerService.getOrNewByName(seleniumMatch.getPlayer2());
-            ResultEntity resultEntity = resultService.getOrNewByParams(seleniumMatch.getResult());
-            LeaguesEntity leaguesEntity = leagueService.byName(seleniumMatch.getLeague());
+        try {
 
-            matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity);
+            for (SeleniumMatch seleniumMatch : seleniumMatchList.getMatchList()) {
+                PlayersEntity player1Entity = playerService.getOrNewByName(seleniumMatch.getPlayer1());
+                PlayersEntity player2Entity = playerService.getOrNewByName(seleniumMatch.getPlayer2());
+                ResultEntity resultEntity = resultService.getOrNewByParams(seleniumMatch.getResult());
+                LeaguesEntity leaguesEntity = leagueService.byName(seleniumMatch.getLeague());
+
+                matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity);
+            }
+        } catch (DataTruncationException e) {
+            logger.error("Неверные данные пришли в insertMatch", e);
         }
     }
 

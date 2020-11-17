@@ -1,7 +1,9 @@
 package dao;
 
+import controller.connection.ApplicationController;
 import entity.dbEntity.ResultEntity;
 import entity.StringResult;
+import org.apache.log4j.Logger;
 import util.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

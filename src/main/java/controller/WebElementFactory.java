@@ -28,7 +28,7 @@ public class WebElementFactory {
     }
 
     public void waitUntilMatchesLoaded() {
-        generateWait(30).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(MATCHBOX_CLASS)));
+        generateWait(10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(MATCHBOX_CLASS)));
     }
 
     public WebElement getCalendar() {

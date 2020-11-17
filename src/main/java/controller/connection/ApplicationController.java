@@ -16,7 +16,6 @@ public class ApplicationController implements Runnable {
     private final Socket socket;
     private ObjectInputStream requestStream;
     private ObjectOutputStream responseStream;
-    private DataController dataController;
     private static final Logger logger = LogManager.getLogger(ApplicationController.class);
 
     public ApplicationController(Socket socket) {
@@ -30,18 +29,14 @@ public class ApplicationController implements Runnable {
 
             responseStream = new ObjectOutputStream(socket.getOutputStream());
             requestStream = new ObjectInputStream(socket.getInputStream());
-            dataController = DataController.getInstance();
-
             TransferObject transferObject = readTransferObject();
 
             handleRequest(transferObject);
 
         } catch (IOException e) {
-            logger.error("Проблема на уровне подключения сервера"+e.getStackTrace().toString());
-            e.printStackTrace();
+            logger.error("Проблема на уровне подключения сервера",e);
         } catch (ClassNotFoundException e) {
-            logger.error("Некорректный класс пришел jopa");
-            e.printStackTrace();
+            logger.error("Некорректный класс пришел",e);
         } finally {
             try {
                 requestStream.close();
@@ -49,10 +44,8 @@ public class ApplicationController implements Runnable {
                 socket.close();
 
             } catch (IOException e) {
-                logger.error("не удалось освободить ресурсы");
-                e.printStackTrace();
+                logger.error("не удалось освободить ресурсы",e);
             }
-            System.out.println("Client disconnected");
         }
     }
 

@@ -6,8 +6,12 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SeleniumMatchBuilder {
+
+    final static String SPLIT_SYMBOL = "/";
 
     public SeleniumMatchList getSeleniumMatchList(List<WebElement> matchList, String league) {
         SeleniumMatchList seleniumMatchList = new SeleniumMatchList();
@@ -55,23 +59,20 @@ public class SeleniumMatchBuilder {
         return "2020-" + tempString[1] + '-' + tempString[0] + " " + result[1];
     }
 
-    private String[] playersToDBForm(String players) {
+    private String[] playersToDBForm(String textFromPlayersCell) {
         String[] listOfPlayers;
-        listOfPlayers = players.split(" - ");
+        String preparedPlayerNames = parsePlayerNames(textFromPlayersCell);
 
-        listOfPlayers[0] = deleteCommentsFromName(listOfPlayers[0]);
-        listOfPlayers[1] = deleteCommentsFromName(listOfPlayers[1]);
-
+        listOfPlayers = preparedPlayerNames.split(SPLIT_SYMBOL);
         return listOfPlayers;
     }
 
-    private String deleteCommentsFromName(String playerName) {
-        int deleteAfterIndex = playerName.lastIndexOf(" ");
-        if (deleteAfterIndex != -1) {
-            playerName = playerName.substring(0, deleteAfterIndex);
-        }
-
-        return playerName;
+    private static String parsePlayerNames(String textFromPlayersCell) {
+        final String REGEXP_COUNTRY_FROM = "(\\(*[a-zA-Zа-яА-Я]*\\))";
+        final String REGEXP_SEPARATOR = "(\\s+-\\s+)";
+        String cleanPlayerNames = textFromPlayersCell.replaceAll(REGEXP_COUNTRY_FROM,"");
+        cleanPlayerNames = cleanPlayerNames.replaceAll(REGEXP_SEPARATOR,SPLIT_SYMBOL);
+        return cleanPlayerNames;
     }
 
     private StringResult scoreToDBForm(String score) {

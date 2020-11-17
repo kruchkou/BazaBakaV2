@@ -6,9 +6,9 @@ import org.hibernate.Transaction;
 import util.HibernateSessionFactoryUtil;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 public class UnregUsersDAO {
-
 
     public UnregUsersEntity findById(int id) {
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(UnregUsersEntity.class, id);
