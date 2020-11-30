@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.exception.DataException;
 import service.*;
 
+import javax.persistence.PersistenceException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,7 +100,7 @@ public class DataController {
 
                 matchService.insertIgnore(player1Entity, player2Entity, resultEntity, seleniumMatch.getDate(), leaguesEntity);
             }
-        } catch (DataException e) {
+        } catch (PersistenceException e) {
             logger.error("Неверные данные пришли в insertMatch", e);
         }
     }
@@ -123,8 +124,8 @@ public class DataController {
 
         List<UnregUsersEntity> dbList = unregUsersService.all();
 
-        for(UnregUsersEntity u : dbList){
-            unregList.add(new StringUser(u.getNickname(),u.getUserId()));
+        for(UnregUsersEntity unregUserEntity : dbList){
+            unregList.add(new StringUser(unregUserEntity.getNickname(),unregUserEntity.getUserId()));
         }
 
         return unregList;

@@ -26,7 +26,6 @@ public class ApplicationController implements Runnable {
     public void run() {
 
         try {
-
             responseStream = new ObjectOutputStream(socket.getOutputStream());
             requestStream = new ObjectInputStream(socket.getInputStream());
             TransferObject transferObject = readTransferObject();
@@ -38,10 +37,17 @@ public class ApplicationController implements Runnable {
         } catch (ClassNotFoundException e) {
             logger.error("Некорректный класс пришел",e);
         } finally {
+
             try {
-                requestStream.close();
-                responseStream.close();
-                socket.close();
+                if(requestStream != null) {
+                    requestStream.close();
+                }
+                if(responseStream != null) {
+                    responseStream.close();
+                }
+                if (socket != null) {
+                    socket.close();
+                }
 
             } catch (IOException e) {
                 logger.error("не удалось освободить ресурсы",e);

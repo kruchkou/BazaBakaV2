@@ -1,2 +1,8 @@
-2020-11-12 01:11:02 INFO  SeleniumController:loadLeagues 109 - Отсканированно матчей: 0
-2020-11-12 01:11:17 INFO  SeleniumController:loadLeagues 109 - Отсканированно матчей: 0
+2020-11-29 18:11:53 INFO  ServerController:main 17 - Сервер запущен. v0.1
+2020-11-29 18:11:53 INFO  ServerController:main 18 - 6431@pop-os
+2020-11-29 18:12:34 INFO  ServerController:main 17 - Сервер запущен. v0.1
+2020-11-29 18:12:34 INFO  ServerController:main 18 - 6525@pop-os
+2020-11-29 18:13:09 INFO  SeleniumController:loadLeagues 111 - Отсканированно матчей: 408
+2020-11-29 18:13:31 INFO  SeleniumController:loadLeagues 111 - Отсканированно матчей: 408
+2020-11-29 18:13:53 INFO  SeleniumController:loadLeagues 111 - Отсканированно матчей: 408
+2020-11-29 18:14:15 INFO  SeleniumController:loadLeagues 111 - Отсканированно матчей: 408

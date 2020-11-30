@@ -31,8 +31,8 @@ public class SeleniumController {
         WebElement searchBox = webElementFactory.getSearchBox();
         nastolkaButton.click();
 
-        seleniumMatchList = loadLeagues(webElementFactory);
-
+            seleniumMatchList = loadLeagues(webElementFactory);
+            Thread.sleep(500);
         driver.quit();
         return seleniumMatchList;
     }
@@ -128,7 +128,7 @@ public class SeleniumController {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
         ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("--headless");
+        //options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--lang=ru");
 
@@ -146,6 +146,15 @@ public class SeleniumController {
 
     //endregion
 
-
+    public static void main(String[] args) {
+        SeleniumController seleniumController = new SeleniumController();
+        try {
+            seleniumController.getNewMatches();
+        } catch (SeleniumInitException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
