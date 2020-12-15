@@ -5,7 +5,9 @@ import util.DateFormater;
 
 import java.io.Serializable;
 
-public class Match implements Serializable {
+public class
+
+Match implements Serializable {
 
     private String date;
     private String player1;

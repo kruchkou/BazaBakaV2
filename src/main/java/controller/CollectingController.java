@@ -70,7 +70,9 @@ public class CollectingController implements Runnable {
         public void run() {
             try {
                 seleniumController.setLeagues(dataController.getLeagues());
-                dataController.insertMatches(seleniumController.getNewMatches());
+/*                dataController.insertMatches(seleniumController.
+                        getNewMatches());*/
+                seleniumController.getMatchesByDate(1);
             } catch (SeleniumInitException seleniumInitException) {
                 logger.error("Хром не был запущен. Ожидание следующей итерации", seleniumInitException);
             } catch (InterruptedException interruptedException) {

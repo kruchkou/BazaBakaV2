@@ -1,8 +1,65 @@
-2020-11-29 18:11:53 INFO  ServerController:main 17 - Сервер запущен. v0.1
-2020-11-29 18:11:53 INFO  ServerController:main 18 - 6431@pop-os
-2020-11-29 18:12:34 INFO  ServerController:main 17 - Сервер запущен. v0.1
-2020-11-29 18:12:34 INFO  ServerController:main 18 - 6525@pop-os
-2020-11-29 18:13:09 INFO  SeleniumController:loadLeagues 111 - Отсканированно матчей: 408
-2020-11-29 18:13:31 INFO  SeleniumController:loadLeagues 111 - Отсканированно матчей: 408
-2020-11-29 18:13:53 INFO  SeleniumController:loadLeagues 111 - Отсканированно матчей: 408
-2020-11-29 18:14:15 INFO  SeleniumController:loadLeagues 111 - Отсканированно матчей: 408
+2020-12-01 00:13:46 INFO  ServerController:main 17 - Сервер запущен. v0.1
+2020-12-01 00:13:46 INFO  ServerController:main 18 - 21132@pop-os
+2020-12-01 00:13:58 INFO  ServerController:main 17 - Сервер запущен. v0.1
+2020-12-01 00:13:58 INFO  ServerController:main 18 - 21225@pop-os
+2020-12-01 00:14:30 INFO  ServerController:main 17 - Сервер запущен. v0.1
+2020-12-01 00:14:30 INFO  ServerController:main 18 - 21405@pop-os
+2020-12-01 00:16:45 INFO  ServerController:main 17 - Сервер запущен. v0.1
+2020-12-01 00:16:45 INFO  ServerController:main 18 - 2974@pop-os
+2020-12-01 00:17:49 INFO  SeleniumController:loadLeagues 109 - Отсканированно матчей: 434
+2020-12-01 00:28:40 INFO  SeleniumController:loadLeagues 109 - Отсканированно матчей: 422
+2020-12-01 00:44:40 INFO  SeleniumController:loadLeagues 109 - Отсканированно матчей: 478
+2020-12-01 01:00:10 INFO  SeleniumController:loadLeagues 109 - Отсканированно матчей: 483
+2020-12-01 01:04:53 ERROR DataController:insertMatches 104 - Неверные данные пришли в insertMatch
+javax.persistence.PersistenceException: org.hibernate.exception.DataException: could not execute statement
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:154)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1364)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:451)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3210)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2378)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at dao.ResultDao.save(ResultDao.java:23)
+	at service.ResultService.save(ResultService.java:21)
+	at service.ResultService.getOrNewByParams(ResultService.java:52)
+	at controller.DataController.insertMatches(DataController.java:98)
+	at controller.SeleniumController.getMatchesByDate(SeleniumController.java:82)
+	at controller.CollectingController$SeleniumTask.run(CollectingController.java:75)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: org.hibernate.exception.DataException: could not execute statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:52)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:200)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3254)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3779)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at org.hibernate.engine.spi.ActionQueue$$Lambda$343/0000000000000000.accept(Unknown Source)
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.internal.SessionImpl$$Lambda$339/0000000000000000.accept(Unknown Source)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1360)
+	... 16 more
+Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'set4' at row 1
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1347)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	... 29 more
+2020-12-01 18:26:16 INFO  ServerController:main 17 - Сервер запущен. v0.1
+2020-12-01 18:26:16 INFO  ServerController:main 18 - 20974@pop-os

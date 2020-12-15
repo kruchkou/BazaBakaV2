@@ -11,18 +11,40 @@ public class Delimiter implements Serializable {
     private int delimQuantity;
 
     private void initMatchListByQuantity(MatchList matchList) {
-        int matchesLeftQ = matchList.size();
-        int offsetIndex = 0;
+        int matchesLeft = matchList.size(); //49 / 10 = 4
+
+        int steps = matchesLeft / delimQuantity;
+        int offsetIndex;
         int endIndex;
-        do {
-            endIndex = delimQuantity - 1 + offsetIndex;
 
+        for (int index = 0; index < steps; index++) {
+            offsetIndex = delimQuantity * index; //0 10 20 30
+            endIndex = offsetIndex + delimQuantity - 1; //9 19 29 39
             matchListByQuantity.add(new MatchList(matchList, offsetIndex, endIndex));
+        }
+        int left = matchesLeft % delimQuantity; //9
 
-            offsetIndex += delimQuantity;
-            matchesLeftQ -= delimQuantity;
-        } while (matchesLeftQ > 0);
+        if(left>0) {
+            offsetIndex = delimQuantity * steps;
+            endIndex = offsetIndex+left-1;
+            matchListByQuantity.add(new MatchList(matchList, offsetIndex, endIndex));
+        }
     }
+
+
+//    private void initMatchListByQuantity(MatchList matchList) {
+//        int matchesLeftQ = matchList.size();
+//        int offsetIndex = 0;
+//        int endIndex;
+//        do {
+//            endIndex = delimQuantity - 1 + offsetIndex;
+//
+//            matchListByQuantity.add(new MatchList(matchList, offsetIndex, endIndex));
+//
+//            offsetIndex += delimQuantity;
+//            matchesLeftQ -= delimQuantity;
+//        } while (matchesLeftQ > 0);
+//    }
 
     private void initMatchListByDate(MatchList matchList) {
         String prevDate = matchList.getList().get(0).getDate();
